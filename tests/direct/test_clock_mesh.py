@@ -120,3 +120,12 @@ def test_validator_refetches_and_checks_commitment(direct_vm, direct_deploy, dir
     c.resolve()
     set_mocks(direct_vm, url, raw + b'changed', CASES['transitive'][0])
     assert direct_vm.run_validator() is False
+
+
+def test_schema_repair_does_not_accept_invented_permissions(direct_vm, direct_deploy, direct_accounts):
+    c, url, raw, _, _ = setup_case(direct_vm, direct_deploy, direct_accounts, 'transitive')
+    before = c.get_state()
+    set_mocks(direct_vm, url, raw, [{'low': 2, 'high': 3}, [2, 3], None])
+    with direct_vm.expect_revert('[LLM] Invalid timing decision'):
+        c.resolve()
+    assert c.get_state() == before

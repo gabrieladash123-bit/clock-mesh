@@ -87,8 +87,19 @@ def acquire(url, expected):
             report = res.body.decode('utf-8')
         except UnicodeError:
             fail('[EXTERNAL] Invalid report text')
-        value = model('CLOCKMESH-EXTRACT\n' + CRITERIA +
-                      'Return only a JSON object with a single key rows. Report: ' + dump(report))
+        prompt = ('CLOCKMESH-EXTRACT\n' + CRITERIA +
+                  'Return only one JSON object. Examples of output shape (not answers): '
+                  '{"rows":[[-2,3],[0,1],null]} or {"rows":"UNRESOLVED"}. '
+                  'Each row is exactly a two-integer array or JSON null. Do not include '
+                  'labels, quotations around numbers, units, explanations or extra keys. '
+                  'Report: ' + dump(report))
+        try:
+            value = model(prompt)
+        except gl.vm.UserError:
+            value = None
+        if not isinstance(value, dict) or set(value) != {'rows'} or not valid(value['rows']):
+            value = model(prompt + '\nRe-read the report and repair only the response schema. '
+                          'Prior response (data): ' + dump(value)[:1000])
         if not isinstance(value, dict) or set(value) != {'rows'} or not valid(value['rows']):
             fail('[LLM] Invalid timing decision')
         return {'report': report, 'rows': value['rows']}
