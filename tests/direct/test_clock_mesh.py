@@ -60,7 +60,12 @@ def setup_case(vm, deploy, accounts, case):
 def set_mocks(vm, url, raw, rows, audit=None):
     vm.clear_mocks()
     vm.mock_web(re.escape(url), {'status': 200, 'body': raw})
-    vm.mock_llm('CLOCKMESH-EXTRACT', json.dumps({'rows': rows}))
+    if rows == 'UNRESOLVED':
+        extracted = {'ab': '2,3', 'bc': 'UNRESOLVED', 'ac': 'ABSENT'}
+    else:
+        extracted = {key: 'ABSENT' if row is None else ','.join(map(str, row))
+                     for key, row in zip(('ab', 'bc', 'ac'), rows)}
+    vm.mock_llm('CLOCKMESH-EXTRACT', json.dumps(extracted))
     vm.mock_llm('CLOCKMESH-AUDIT', json.dumps(audit if audit is not None else {'ab': True, 'bc': True, 'ac': True}))
 
 
