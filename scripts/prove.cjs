@@ -40,7 +40,7 @@ async function main(){
    const observed=await read(id+'-'+label+'-state',['call',contract,'get_state']);
    assert(equal(observed,expected),'Unexpected full onchain state: '+label);
    trace.at(-1).state=observed;
-   save(id+'-progress',{id,contract,deployment,source_sha256:sourceHash,revision,trace});
+   save(id+'-progress',{id,contract,deployment,source_sha256:sourceHash,revision:rev,trace});
  }
  await state('deploy');
  async function send(label,actor,method,args,error,update=()=>{}){
@@ -60,7 +60,7 @@ async function main(){
  const first=analysis.eligible[0];
  if(first!==undefined)await send('replay-claim',1,'claim',[first],'Right already transferred');
  assert(code.equals(Buffer.from(await rpc('gen_getContractCode',[contract]),'base64')),'Fresh deployed code matches');
- save(id+'-verified',{id,contract,deployment,source_sha256:sourceHash,revision,trace});
+ save(id+'-verified',{id,contract,deployment,source_sha256:sourceHash,revision:rev,trace});
  console.log(JSON.stringify({id,contract,deployment,receipts:trace.length}));
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});
