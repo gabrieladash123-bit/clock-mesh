@@ -1,0 +1,1 @@
+Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as "several seconds after B"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.

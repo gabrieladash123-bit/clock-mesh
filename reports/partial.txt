@@ -1,0 +1,1 @@
+Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.

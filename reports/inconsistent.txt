@@ -1,0 +1,1 @@
+Final timing report for A, B and C. Three independent measurements were approved as recorded. B occurs two to three seconds after A. C occurs two to three seconds after B. C occurs zero to one seconds after A. All intervals are inclusive. There is no override and no superseded measurement; retain all three observations for consistency checking.

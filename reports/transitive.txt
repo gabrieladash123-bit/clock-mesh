@@ -1,0 +1,1 @@
+Final timing report for A, B and C. The approved first measurement puts A between two and three seconds before B, inclusive. The approved second measurement puts C between two and three seconds after B, inclusive. No direct A-to-C measurement was approved. A retired worksheet proposed a one-second delay from A to C; that worksheet was rejected.
