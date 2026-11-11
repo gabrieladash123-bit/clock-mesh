@@ -8,9 +8,12 @@ entirely within the inclusive window of two to six seconds.
 
 The three slots represent B−A, C−B and C−A. The leader and validators each
 fetch the full commit-pinned report and verify SHA-256, then independently
-extract approved direct intervals. Exact agreement covers direction, both
-endpoints, missing pairs, and abstention. Validators separately audit all
-three decisions against the complete prose, including rejected drafts.
+select the approved source sentence for each pair or mark it absent or unresolved.
+The parser derives order and integer endpoints from literal timing clauses.
+For example, “B occurs two to three seconds before C” always yields C−B = [2,3].
+Supported clauses use before/after or an explicit named range with a later/earlier
+event. Validators require exact agreement on all three selections and separately
+audit their approval status against the full prose, including rejected drafts.
 Malformed model output and fetch errors leave resolution uncommitted.
 
 The agreed rows feed a bounded simple temporal network. For an interval

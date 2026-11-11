@@ -8,6 +8,12 @@ const cases={
  inconsistent:{rows:[[2,3],[2,3],[0,1]],analysis:{status:'INCONSISTENT',bounds:null,eligible:[],conflict:[0,1,2]}},
  unresolved:{rows:'UNRESOLVED',analysis:{status:'UNRESOLVED',bounds:null,eligible:[],conflict:[]}},
 };
+const selections={
+ transitive:{ab:'S2',bc:'S3',ac:'ABSENT'},
+ partial:{ab:'S2',bc:'S3',ac:'ABSENT'},
+ inconsistent:{ab:'S3',bc:'S4',ac:'S5'},
+ unresolved:{ab:'S2',bc:'UNRESOLVED',ac:'ABSENT'},
+};
 async function main(){
  const id=process.env.CLOCK_SCENARIO;
  assert(Object.hasOwn(cases,id),'Choose a supported report');
@@ -38,6 +44,7 @@ async function main(){
  const expected={config:{url,sha256,issuer,recipient},observation:null,analysis:null,holders:[issuer,issuer,issuer]};
  async function state(label){
    const observed=await read(id+'-'+label+'-state',['call',contract,'get_state']);
+   if(!equal(observed,expected))save(id+'-state-mismatch',{label,observed,expected});
    assert(equal(observed,expected),'Unexpected full onchain state: '+label);
    trace.at(-1).state=observed;
    save(id+'-progress',{id,contract,deployment,source_sha256:sourceHash,revision:rev,trace});
@@ -51,7 +58,7 @@ async function main(){
    await state(label);
  }
  await send('premature',1,'claim',[0],'Window not proven');
- await send('resolve',2,'resolve',[],null,()=>{expected.observation={rows,report:raw.toString('utf8')};expected.analysis=analysis;});
+ await send('resolve',2,'resolve',[],null,()=>{expected.observation={rows,report:raw.toString('utf8'),selections:selections[id]};expected.analysis=analysis;});
  await send('outsider',2,'claim',[0],'Recipient only');
  for(let i=0;i<3;i++){
    const allowed=analysis.eligible.includes(i);

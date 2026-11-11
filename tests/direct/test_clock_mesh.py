@@ -15,6 +15,12 @@ CASES = {
     'inconsistent': ([[2, 3], [2, 3], [0, 1]], 'INCONSISTENT', []),
     'unresolved': ('UNRESOLVED', 'UNRESOLVED', []),
 }
+SELECTIONS = {
+    'transitive': {'ab': 'S2', 'bc': 'S3', 'ac': 'ABSENT'},
+    'partial': {'ab': 'S2', 'bc': 'S3', 'ac': 'ABSENT'},
+    'inconsistent': {'ab': 'S3', 'bc': 'S4', 'ac': 'S5'},
+    'unresolved': {'ab': 'S2', 'bc': 'UNRESOLVED', 'ac': 'ABSENT'},
+}
 
 
 def oracle_test_functions():
@@ -53,19 +59,14 @@ def setup_case(vm, deploy, accounts, case):
     vm.sender = accounts[0]
     contract = deploy(CONTRACT, url, sha256(raw).hexdigest(), recipient)
     assert contract.get_state()['holders'] == [sender] * 3
-    set_mocks(vm, url, raw, CASES[case][0])
+    set_mocks(vm, url, raw, SELECTIONS[case])
     return contract, url, raw, sender, recipient
 
 
-def set_mocks(vm, url, raw, rows, audit=None):
+def set_mocks(vm, url, raw, selections, audit=None):
     vm.clear_mocks()
     vm.mock_web(re.escape(url), {'status': 200, 'body': raw})
-    if rows == 'UNRESOLVED':
-        extracted = {'ab': '2,3', 'bc': 'UNRESOLVED', 'ac': 'ABSENT'}
-    else:
-        extracted = {key: 'ABSENT' if row is None else ','.join(map(str, row))
-                     for key, row in zip(('ab', 'bc', 'ac'), rows)}
-    vm.mock_llm('CLOCKMESH-EXTRACT', json.dumps(extracted))
+    vm.mock_llm('CLOCKMESH-EXTRACT', json.dumps(selections))
     vm.mock_llm('CLOCKMESH-AUDIT', json.dumps(audit if audit is not None else {'ab': True, 'bc': True, 'ac': True}))
 
 
@@ -80,7 +81,8 @@ def test_full_resolution_and_holder_transfers(direct_vm, direct_deploy, direct_a
     vm.sender = direct_accounts[2]
     c.resolve()
     assert vm.run_validator() is True
-    assert c.get_state()['observation'] == {'report': raw.decode(), 'rows': rows}
+    assert c.get_state()['observation'] == {'report': raw.decode(), 'rows': rows,
+                                            'selections': SELECTIONS[case]}
     assert c.get_state()['analysis']['status'] == status
     assert c.get_state()['analysis']['eligible'] == eligible
     with vm.expect_revert('Recipient only'):
@@ -108,29 +110,41 @@ def test_validator_requires_each_actual_boolean(direct_vm, direct_deploy, direct
     c.resolve()
     audit = {'ab': True, 'bc': True, 'ac': True}
     audit[dimension] = value
-    set_mocks(direct_vm, url, raw, CASES['transitive'][0], audit)
+    set_mocks(direct_vm, url, raw, SELECTIONS['transitive'], audit)
     assert direct_vm.run_validator() is False
 
 
-@pytest.mark.parametrize('rows', [[[1, 3], [2, 3], None], [[2, 3], [2, 3], [4, 6]], 'UNRESOLVED'])
-def test_validator_rejects_consequential_differences(direct_vm, direct_deploy, direct_accounts, rows):
+@pytest.mark.parametrize('selection', ['ABSENT', 'UNRESOLVED', 'S3'])
+def test_validator_rejects_consequential_differences(direct_vm, direct_deploy, direct_accounts, selection):
     c, url, raw, _, _ = setup_case(direct_vm, direct_deploy, direct_accounts, 'transitive')
     c.resolve()
-    set_mocks(direct_vm, url, raw, rows)
+    set_mocks(direct_vm, url, raw, dict(SELECTIONS['transitive'], ab=selection))
     assert direct_vm.run_validator() is False
 
 
 def test_validator_refetches_and_checks_commitment(direct_vm, direct_deploy, direct_accounts):
     c, url, raw, _, _ = setup_case(direct_vm, direct_deploy, direct_accounts, 'transitive')
     c.resolve()
-    set_mocks(direct_vm, url, raw + b'changed', CASES['transitive'][0])
+    set_mocks(direct_vm, url, raw + b'changed', SELECTIONS['transitive'])
     assert direct_vm.run_validator() is False
 
 
 def test_schema_repair_does_not_accept_invented_permissions(direct_vm, direct_deploy, direct_accounts):
     c, url, raw, _, _ = setup_case(direct_vm, direct_deploy, direct_accounts, 'transitive')
     before = c.get_state()
-    set_mocks(direct_vm, url, raw, [{'low': 2, 'high': 3}, [2, 3], None])
+    set_mocks(direct_vm, url, raw, dict(SELECTIONS['transitive'], ab='-3,-2'))
     with direct_vm.expect_revert('[LLM] Invalid timing decision'):
         c.resolve()
     assert c.get_state() == before
+
+
+@pytest.mark.parametrize(('position', 'expected'), [('before', [2, 3]), ('after', [-3, -2])])
+def test_direction_is_derived_from_source(direct_vm, direct_deploy, direct_accounts, position, expected):
+    raw = f'Final approved reading: B occurs two to three seconds {position} C. All endpoints are inclusive.'.encode()
+    url = 'https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/' + 'a' * 40 + '/reports/order.txt'
+    direct_vm.sender = direct_accounts[0]
+    c = direct_deploy(CONTRACT, url, sha256(raw).hexdigest(), '0x' + bytes(direct_accounts[1]).hex())
+    set_mocks(direct_vm, url, raw, {'ab': 'ABSENT', 'bc': 'S1', 'ac': 'ABSENT'})
+    c.resolve()
+    assert direct_vm.run_validator() is True
+    assert c.get_state()['observation']['rows'] == [None, expected, None]
