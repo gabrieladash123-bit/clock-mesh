@@ -1,0 +1,304 @@
+{
+  "id": "unresolved",
+  "contract": "0x2F9028682eD97cebaC215C8edb7Da19Daa6166Ee",
+  "deployment": "0x520021473662e14aa1198c87e4c52d314833575f864f602a1fd1fd3959c6464e",
+  "source_sha256": "2aa3e93cd447b1600b1008cdbeaea6adcc4b3c48b14fc2ee83d9660a6b963991",
+  "revision": "c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d",
+  "trace": [
+    {
+      "label": "deploy",
+      "hash": "0x520021473662e14aa1198c87e4c52d314833575f864f602a1fd1fd3959c6464e",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+      "typed": {
+        "args": [
+          "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt",
+          "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "0x12e80af070089bf9bef6425fdc2e44749bb09e14"
+        ]
+      },
+      "error": null,
+      "state": {
+        "analysis": null,
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": null
+      }
+    },
+    {
+      "label": "premature",
+      "hash": "0xfdeedc9ba17e70f3b230dddefea54bdb2432c62533c1cf7640c7db55adaa2a47",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": null,
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": null
+      }
+    },
+    {
+      "label": "resolve",
+      "hash": "0x31d6932b7c186820c05717e4a87b2e12fedfe85bc76f9be89ffad4ade5c9fc41",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 1,
+      "idle": 1,
+      "signer": "0x6a44a1058b4a090919053ae84a737e0f808623cc",
+      "typed": {
+        "method": "resolve",
+        "args": []
+      },
+      "error": null,
+      "state": {
+        "analysis": {
+          "bounds": null,
+          "conflict": [],
+          "eligible": [],
+          "status": "UNRESOLVED"
+        },
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": {
+          "report": "Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as \"several seconds after B\"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.\n",
+          "rows": "UNRESOLVED",
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "UNRESOLVED"
+          }
+        }
+      }
+    },
+    {
+      "label": "outsider",
+      "hash": "0xd6f71dab804f59e6a76d576c6a541c7628f93b33af97a35bee9a7ae924609332",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x6a44a1058b4a090919053ae84a737e0f808623cc",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Recipient only",
+      "state": {
+        "analysis": {
+          "bounds": null,
+          "conflict": [],
+          "eligible": [],
+          "status": "UNRESOLVED"
+        },
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": {
+          "report": "Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as \"several seconds after B\"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.\n",
+          "rows": "UNRESOLVED",
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "UNRESOLVED"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-0",
+      "hash": "0xbd65b95d8a83102c17a0eadca1d863393880732b03d6c74f12e6c93c7ef93e52",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 4,
+      "disagree": 0,
+      "idle": 1,
+      "signer": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": {
+          "bounds": null,
+          "conflict": [],
+          "eligible": [],
+          "status": "UNRESOLVED"
+        },
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": {
+          "report": "Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as \"several seconds after B\"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.\n",
+          "rows": "UNRESOLVED",
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "UNRESOLVED"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-1",
+      "hash": "0x1b725182dde3619de4c0511ce60ae3c5fbf1558b26edfacd781512d6b6b76dd4",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+      "typed": {
+        "method": "claim",
+        "args": [
+          1
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": {
+          "bounds": null,
+          "conflict": [],
+          "eligible": [],
+          "status": "UNRESOLVED"
+        },
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": {
+          "report": "Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as \"several seconds after B\"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.\n",
+          "rows": "UNRESOLVED",
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "UNRESOLVED"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-2",
+      "hash": "0xeb8e14f50c88c9337cf4243d0610b140de9cab8b12591402a4075d0159102734",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+      "typed": {
+        "method": "claim",
+        "args": [
+          2
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": {
+          "bounds": null,
+          "conflict": [],
+          "eligible": [],
+          "status": "UNRESOLVED"
+        },
+        "config": {
+          "issuer": "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "recipient": "0x12e80af070089bf9bef6425fdc2e44749bb09e14",
+          "sha256": "f8f92e8bafe614ee97e901726cb3678a3ddce003b00e2762dc3ed6efd6d603c5",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/unresolved.txt"
+        },
+        "holders": [
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c",
+          "0xdca559ff988dc0f8773ff9d5b89e516baf6c0a3c"
+        ],
+        "observation": {
+          "report": "Timing review for A, B and C. The approved A-to-B range is two to three seconds inclusive, with B later. A final B-to-C measurement was approved only as \"several seconds after B\"; its numeric endpoints are unresolved. No direct A-to-C measurement was approved. The numeric two-to-three-second draft for B-to-C was withdrawn.\n",
+          "rows": "UNRESOLVED",
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "UNRESOLVED"
+          }
+        }
+      }
+    }
+  ]
+}

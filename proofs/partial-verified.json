@@ -1,0 +1,506 @@
+{
+  "id": "partial",
+  "contract": "0x2CbC3Fa37C0ac401B0058777817381112E1a96ee",
+  "deployment": "0xcb25480037d5c42bcb0c3e08e8f3e48742990902e94aec76176a48cc4c2540cf",
+  "source_sha256": "2aa3e93cd447b1600b1008cdbeaea6adcc4b3c48b14fc2ee83d9660a6b963991",
+  "revision": "c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d",
+  "trace": [
+    {
+      "label": "deploy",
+      "hash": "0xcb25480037d5c42bcb0c3e08e8f3e48742990902e94aec76176a48cc4c2540cf",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+      "typed": {
+        "args": [
+          "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt",
+          "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "0x95e85a9701205dfe7624383692fa159012258b21"
+        ]
+      },
+      "error": null,
+      "state": {
+        "analysis": null,
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": null
+      }
+    },
+    {
+      "label": "premature",
+      "hash": "0x571da9745cb5510a0ba5d76a224c3282aff01bc00185850b3178885381f70c57",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 4,
+      "disagree": 0,
+      "idle": 1,
+      "signer": "0x95e85a9701205dfe7624383692fa159012258b21",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": null,
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": null
+      }
+    },
+    {
+      "label": "resolve",
+      "hash": "0x00b4ad90b1a78a7a4e38081f8356953f7aa3ef267eeeaf473201e940ae5f59f6",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x683af5859130d0fdfe19cceec25f11d6cdbc1c9a",
+      "typed": {
+        "method": "resolve",
+        "args": []
+      },
+      "error": null,
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    },
+    {
+      "label": "outsider",
+      "hash": "0x6c3902175eff97b0b1d73329263142f7ceb31ea1902e5af71790f2c81f57be43",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x683af5859130d0fdfe19cceec25f11d6cdbc1c9a",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Recipient only",
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-0",
+      "hash": "0x2f5e2b58d2b520cc9fedd8020ad8e96fda443d88a7ed7d824eb4c285987b9486",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x95e85a9701205dfe7624383692fa159012258b21",
+      "typed": {
+        "method": "claim",
+        "args": [
+          0
+        ]
+      },
+      "error": "Window not proven",
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-1",
+      "hash": "0xd7a0ff012b478ea555dbeb27e9d3b180d4d4748090ccb20b8792c5ef687241e2",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x95e85a9701205dfe7624383692fa159012258b21",
+      "typed": {
+        "method": "claim",
+        "args": [
+          1
+        ]
+      },
+      "error": null,
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x95e85a9701205dfe7624383692fa159012258b21",
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    },
+    {
+      "label": "claim-2",
+      "hash": "0xb84ae73d9dc732ab6b0f19f17784497e3027c7b91d4b16ea0a3de228ef198e23",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x95e85a9701205dfe7624383692fa159012258b21",
+      "typed": {
+        "method": "claim",
+        "args": [
+          2
+        ]
+      },
+      "error": null,
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x95e85a9701205dfe7624383692fa159012258b21",
+          "0x95e85a9701205dfe7624383692fa159012258b21"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    },
+    {
+      "label": "replay-claim",
+      "hash": "0xe51d4a0c319c4b6b24e42aa21923e544a7ca22947a895ac9efca78a61e46a6ac",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x95e85a9701205dfe7624383692fa159012258b21",
+      "typed": {
+        "method": "claim",
+        "args": [
+          1
+        ]
+      },
+      "error": "Right already transferred",
+      "state": {
+        "analysis": {
+          "bounds": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conflict": [],
+          "eligible": [
+            1,
+            2
+          ],
+          "status": "CONSISTENT"
+        },
+        "config": {
+          "issuer": "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "recipient": "0x95e85a9701205dfe7624383692fa159012258b21",
+          "sha256": "2843b1437a07c789cc03e44188ee402ab0d95347713a4c99f1b82ffbc4924b0e",
+          "url": "https://raw.githubusercontent.com/gabrieladash123-bit/clock-mesh/c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d/reports/partial.txt"
+        },
+        "holders": [
+          "0x0abf6b68fc27c4e881885e0d04ea95ae836096c1",
+          "0x95e85a9701205dfe7624383692fa159012258b21",
+          "0x95e85a9701205dfe7624383692fa159012258b21"
+        ],
+        "observation": {
+          "report": "Final timing report for A, B and C. The approved measurement places B between one and three seconds after A, inclusive. The second approved measurement places B between two and three seconds before C, inclusive. There is no direct approved measurement between A and C. A nominal two-second A-to-B estimate is not a minimum bound.\n",
+          "rows": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            null
+          ],
+          "selections": {
+            "ab": "S2",
+            "ac": "ABSENT",
+            "bc": "S3"
+          }
+        }
+      }
+    }
+  ]
+}

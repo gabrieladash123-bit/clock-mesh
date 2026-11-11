@@ -49,7 +49,14 @@ Tests compare closure with exhaustive integer timelines for bounded models,
 check native holder transitions, and replay validator callbacks with divergent
 rows and semantic audit verdicts.
 
+The [pre-fix partial run](https://explorer-studio.genlayer.com/tx/0x501566b451df99ec3c25f4fd6dbdbb14ad77c2e76b5369f06a169a425adf2714)
+reached majority agreement on a reversed C−B sign. Its state assertion caught
+the error. The current contract takes the sign from the selected clause, and
+the regression tests cover both directions.
+
 The [StudioNet workflow](.github/workflows/proofs.yml) runs each report with
 three disposable wallets. It checks finalized majority votes, decoded calldata,
 actual holder changes and rollback on rejection. Generic CLI and receipt helpers
 are reused under MIT from [ForkSplice](https://github.com/gabrieladash123-bit/fork-splice).
+
+[Verified StudioNet receipts](proofs/README.md) · [Submission text](SUBMISSION.md)

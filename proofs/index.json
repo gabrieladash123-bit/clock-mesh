@@ -1,0 +1,52 @@
+{
+  "source_sha256": "2aa3e93cd447b1600b1008cdbeaea6adcc4b3c48b14fc2ee83d9660a6b963991",
+  "fixture_revision": "c5be780a1b4a3c7d47b0c7a96f4dcc3b5977921d",
+  "successes": 13,
+  "rejections": 17,
+  "dissent": 3,
+  "instances": [
+    {
+      "id": "transitive",
+      "workflow": "https://github.com/gabrieladash123-bit/clock-mesh/actions/runs/43039630992",
+      "contract": "0x4cbC8Ef6f345d696b48996A844F03df687465F55",
+      "deployment": "0x57a32c7b3c91c221c2f77e9bea4855406fa8a7be4c9195da838480a871934fee",
+      "resolve": "0x14e329261ef4c7aab7a81a0ff67dedc7bbd8e4bbd6917fa659022e614be81fb1",
+      "receipts": 8,
+      "eligible": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "partial",
+      "workflow": "https://github.com/gabrieladash123-bit/clock-mesh/actions/runs/43039646630",
+      "contract": "0x2CbC3Fa37C0ac401B0058777817381112E1a96ee",
+      "deployment": "0xcb25480037d5c42bcb0c3e08e8f3e48742990902e94aec76176a48cc4c2540cf",
+      "resolve": "0x00b4ad90b1a78a7a4e38081f8356953f7aa3ef267eeeaf473201e940ae5f59f6",
+      "receipts": 8,
+      "eligible": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "inconsistent",
+      "workflow": "https://github.com/gabrieladash123-bit/clock-mesh/actions/runs/43039664504",
+      "contract": "0x08A66Eed70294A31D6D2dF03E4701c9C657d0da4",
+      "deployment": "0xfe54adec4060554a1ed45ad11ec6f885e6ed005a7a6bc37e5a523959801132ef",
+      "resolve": "0x8f34cd04b3817885d7e4fbd79b0ccffb0ada1bc01a70d74a57209eae4bc5c78c",
+      "receipts": 7,
+      "eligible": []
+    },
+    {
+      "id": "unresolved",
+      "workflow": "https://github.com/gabrieladash123-bit/clock-mesh/actions/runs/43039676974",
+      "contract": "0x2F9028682eD97cebaC215C8edb7Da19Daa6166Ee",
+      "deployment": "0x520021473662e14aa1198c87e4c52d314833575f864f602a1fd1fd3959c6464e",
+      "resolve": "0x31d6932b7c186820c05717e4a87b2e12fedfe85bc76f9be89ffad4ade5c9fc41",
+      "receipts": 7,
+      "eligible": []
+    }
+  ]
+}
